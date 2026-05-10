@@ -1,0 +1,19 @@
+*.pdf
+*.toc
+*.log
+*.aux
+*.out
+*.gz
+*.idx
+*.synctex.gz
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.nav
+*.snm
+*.vrb
+*.dvi
+*.ps
+*.lof
+Algebra Master Book

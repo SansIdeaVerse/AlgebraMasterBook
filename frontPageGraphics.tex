@@ -1,0 +1,234 @@
+\begin{titlepage}
+
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+
+%====================================================
+% FULL PAGE BACKGROUND
+%====================================================
+
+\path[
+shade,
+left color=blue!40,
+right color=purple!50
+]
+(current page.south west)
+rectangle
+(current page.north east);
+
+%====================================================
+% GLOWING ORBS
+%====================================================
+
+\shade[
+ball color=cyan!60,
+opacity=0.45
+]
+($(current page.center)+(-5,6)$)
+circle (3cm);
+
+\shade[
+ball color=pink!70,
+opacity=0.45
+]
+($(current page.center)+(5,4)$)
+circle (2.5cm);
+
+\shade[
+ball color=green!60,
+opacity=0.45
+]
+($(current page.center)+(-5,-5)$)
+circle (3cm);
+
+\shade[
+ball color=orange!70,
+opacity=0.45
+]
+($(current page.center)+(5,-6)$)
+circle (2.7cm);
+
+%====================================================
+% GLOW CURVES
+%====================================================
+
+\draw[
+white,
+opacity=0.12,
+line width=10pt
+]
+plot[smooth] coordinates {
+(-10,-2)
+(-5,1)
+(0,-1)
+(5,2)
+(10,0)
+};
+
+\draw[
+yellow,
+opacity=0.08,
+line width=8pt
+]
+plot[smooth] coordinates {
+(-10,4)
+(-5,2)
+(0,5)
+(5,1)
+(10,3)
+};
+
+%====================================================
+% FLOATING FORMULAS
+%====================================================
+
+\node[
+text=white,
+opacity=0.18,
+font=\fontsize{28}{28}\bfseries,
+rotate=20
+]
+at ($(current page.center)+(-5,5)$)
+{$x^2+5x+6$};
+
+\node[
+text=yellow,
+opacity=0.18,
+font=\fontsize{26}{26}\bfseries,
+rotate=-15
+]
+at ($(current page.center)+(5,3)$)
+{$(a+b)^2$};
+
+\node[
+text=cyan,
+opacity=0.18,
+font=\fontsize{26}{26}\bfseries,
+rotate=10
+]
+at ($(current page.center)+(-4,-4)$)
+{$x^2-y^2$};
+
+\node[
+text=pink,
+opacity=0.18,
+font=\fontsize{24}{24}\bfseries,
+rotate=-10
+]
+at ($(current page.center)+(5,-5)$)
+{$2x+3y$};
+
+%====================================================
+% DARK OVERLAY
+%====================================================
+
+\fill[
+black,
+opacity=0.35
+]
+(current page.south west)
+rectangle
+(current page.north east);
+
+%====================================================
+% MAIN TITLE
+%====================================================
+
+\node[
+text=white,
+font=\fontsize{34}{38}\bfseries,
+align=center
+]
+at ($(current page.center)+(0,4)$)
+{
+ALGEBRA\\[0.3cm]
+MASTER BOOK
+};
+
+%====================================================
+% SUBTITLE
+%====================================================
+
+\node[
+text=yellow,
+font=\fontsize{16}{20}\bfseries
+]
+at ($(current page.center)+(0,1.5)$)
+{
+Class 8--10
+};
+
+%====================================================
+% CENTRAL SYMBOL
+%====================================================
+
+\shade[
+ball color=white,
+opacity=0.95
+]
+($(current page.center)+(0,-2)$)
+circle (1.5cm);
+
+\node[
+text=blue!80!black,
+font=\fontsize{40}{40}\bfseries
+]
+at ($(current page.center)+(0,-2)$)
+{$x$};
+
+%====================================================
+% AUTHOR
+%====================================================
+
+\node[
+text=white,
+font=\Large\bfseries
+]
+at ($(current page.south)+(0,3.5cm)$)
+{
+Santanu Kundu
+};
+
+%====================================================
+% PUBLISHER
+%====================================================
+
+\node[
+text=white,
+font=\large
+]
+at ($(current page.south)+(0,2.5cm)$)
+{
+\copyright\ SansIdeaVerse Mathematics Publications
+};
+
+%====================================================
+% PARTICLES
+%====================================================
+
+\foreach \x/\y in {
+-7/7,
+-6/3,
+-5/-2,
+-2/6,
+3/7,
+6/4,
+7/-3,
+5/-6,
+-6/-7
+}
+{
+\fill[
+white,
+opacity=0.7
+]
+($(current page.center)+(\x,\y)$)
+circle (0.08cm);
+}
+
+\end{tikzpicture}
+
+\vspace*{\fill}
+
+\end{titlepage}

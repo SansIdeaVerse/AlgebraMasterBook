@@ -1,0 +1,283 @@
+\documentclass[11pt,openany]{book}
+
+% ============================================================
+% PACKAGES
+% ============================================================
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{imakeidx}
+\usepackage{qrcode}
+\usepackage{comment}
+\usepackage{animate}
+\usepackage{eso-pic}
+\usepackage{pagecolor}
+\usepackage{fontawesome5}
+\usepackage{lmodern}
+\usetikzlibrary{
+shadows,
+calc,
+decorations.pathmorphing,
+patterns,
+3d
+}
+
+\usepackage{ocgx2}
+
+
+\makeindex
+\pgfplotsset{compat=1.18}
+
+% ============================================================
+% SOLUTION TOGGLE
+% ============================================================
+
+% STUDENT VERSION:
+% \excludecomment{solution}
+
+% Uncomment for teacher version:
+\includecomment{solution}
+
+% ============================================================
+% COLORS
+% ============================================================
+
+\definecolor{MainBlue}{HTML}{1565C0}
+\definecolor{DarkBlue}{HTML}{0D47A1}
+\definecolor{MathGreen}{HTML}{2E7D32}
+\definecolor{SoftYellow}{HTML}{FFF8E1}
+\definecolor{ProblemRed}{HTML}{C62828}
+\definecolor{PurpleAccent}{HTML}{6A1B9A}
+\definecolor{SoftGray}{HTML}{F5F5F5}
+\definecolor{OlympiadGold}{HTML}{C9A227}
+\definecolor{NeonBlue}{HTML}{00BFFF}
+\definecolor{NeonPink}{HTML}{FF4FD8}
+\definecolor{NeonGreen}{HTML}{39FF14}
+\definecolor{NeonOrange}{HTML}{FF8C42}
+\definecolor{SoftPurple}{HTML}{7B61FF}
+
+% ============================================================
+% HYPERREF
+% ============================================================
+
+\hypersetup{
+colorlinks=true,
+linkcolor=MainBlue,
+urlcolor=ProblemRed
+}
+
+% ============================================================
+% PAGE STYLE
+% ============================================================
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{MainBlue}\leftmark}
+\fancyhead[R]{\color{ProblemRed}\thepage}
+
+% ============================================================
+% CHAPTER STYLE
+% ============================================================
+
+\titleformat{\chapter}
+{\Huge\bfseries\color{MainBlue}}
+{\thechapter}
+{20pt}
+{}
+
+% ============================================================
+% CHAPTER BACKGROUND WATERMARK
+% ============================================================
+
+\AddToShipoutPictureBG{
+\AtPageCenter{
+\makebox(0,0){
+\rotatebox{30}{
+\textcolor{gray!8}{
+\fontsize{4cm}{4cm}\selectfont
+\copyright\ SANTANU
+}
+}
+}
+}
+}
+
+% ============================================================
+% DIFFICULTY COMMANDS
+% ============================================================
+
+\newcommand{\easy}{
+\textcolor{MathGreen}{\Large $\bigstar$ Easy}
+}
+
+\newcommand{\medium}{
+\textcolor{orange}{\Large $\bigstar\bigstar$ Medium}
+}
+
+\newcommand{\hard}{
+\textcolor{ProblemRed}{\Large $\bigstar\bigstar\bigstar$ Hard}
+}
+
+% ============================================================
+% CUSTOM COMMANDS
+% ============================================================
+
+\newcommand{\timeneeded}[1]{
+\faClock\ \textbf{#1 min}
+}
+
+\newcommand{\topic}[1]{
+\colorbox{MainBlue}{\color{white}\strut #1}
+}
+
+% ============================================================
+% BOXES
+% ============================================================
+
+\newtcolorbox{formulasheet}{
+colback=SoftYellow,
+colframe=MathGreen,
+title=\faBook\ Formula Sheet,
+breakable
+}
+
+\newtcolorbox{theorembox}{
+colback=blue!5,
+colframe=MainBlue,
+borderline west={5pt}{0pt}{MainBlue},
+title=\faLightbulb\ Theorem
+}
+
+\newtcolorbox{trickbox}{
+colback=purple!5,
+colframe=PurpleAccent,
+title=\faMagic\ Shortcut Trick
+}
+
+\newtcolorbox{mistakebox}{
+colback=red!5,
+colframe=ProblemRed,
+title=\faExclamationTriangle\ Common Mistake
+}
+
+\newtcolorbox{strategybox}{
+colback=green!5,
+colframe=MathGreen,
+title=\faTrophy\ Exam Strategy
+}
+
+\newtcolorbox{olympiadbox}{
+colback=black!2,
+colframe=black,
+title=\faGem\ Olympiad Challenge
+}
+
+\newtcolorbox{darkpage}{
+colback=black,
+coltext=white,
+colframe=MainBlue,
+breakable
+}
+
+% ============================================================
+% PROBLEM ENVIRONMENT
+% ============================================================
+
+\newcounter{problem}
+
+\newenvironment{problem}[1]
+{
+\refstepcounter{problem}
+\begin{tcolorbox}[title=Problem \theproblem]
+#1
+}
+{
+\end{tcolorbox}
+}
+% ============================================================
+% SOLUTION ENVIRONMENT
+% ============================================================
+\usepackage{ocgx2}
+
+\newcounter{answercounter}
+
+\newenvironment{revealanswer}
+{
+\stepcounter{answercounter}
+
+\par\medskip
+\noindent
+
+\toggleocg{ans\theanswercounter}{
+\tcbox[
+colback=MainBlue!5,
+colframe=MainBlue,
+arc=2mm,
+boxrule=0.8pt
+]{
+\textbf{Show/Hide Solution}
+}
+}
+
+\medskip
+
+\begin{ocg}{Answer}{ans\theanswercounter}{0}
+
+\begin{tcolorbox}[
+colback=green!3,
+colframe=MathGreen,
+title=\faLightbulb\ Solution,
+boxrule=0.8pt,
+arc=2mm
+]
+
+}
+{
+\end{tcolorbox}
+
+\end{ocg}
+
+\medskip
+}
+% ============================================================
+% DOCUMENT
+% ============================================================
+
+\begin{document}
+
+% ============================================================
+% COVER
+% ============================================================
+\include{frontPageGraphics}
+
+
+\tableofcontents
+
+% ============================================================
+% CHAPTERS
+% ============================================================
+\include{Chapter01AlgebraicIdentities}
+
+
+\include{Models}
+
+% ============================================================
+% INDEX
+% ============================================================
+
+\printindex
+
+\end{document}
