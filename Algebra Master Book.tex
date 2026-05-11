@@ -27,6 +27,7 @@
 \usepackage{pagecolor}
 \usepackage{fontawesome5}
 \usepackage{lmodern}
+\usepackage{tasks}
 \usetikzlibrary{
 shadows,
 calc,
@@ -130,6 +131,18 @@ urlcolor=ProblemRed
 \newcommand{\hard}{
 \textcolor{ProblemRed}{\Large $\bigstar\bigstar\bigstar$ Hard}
 }
+
+
+% ============================================================
+% MATHEMATICS COMMANDS
+% ============================================================
+
+
+\newcommand{\dint}[1]{\displaystyle{\int #1 \  dx}}
+\newcommand{\rint}[1]{\resizebox{4.0cm}{!}{$\dint{#1}$}}
+\newcommand{\cosec}[1]{\displaystyle{\text{cosec}\ #1}}
+\newcommand{\coseci}[1]{\displaystyle{\text{cosec}^{-1}\ #1}}
+
 
 % ============================================================
 % CUSTOM COMMANDS
@@ -270,7 +283,7 @@ arc=2mm
 % CHAPTERS
 % ============================================================
 \include{Chapter01AlgebraicIdentities}
-
+\include{Chapter02Factorisation}
 
 \include{Models}
 
